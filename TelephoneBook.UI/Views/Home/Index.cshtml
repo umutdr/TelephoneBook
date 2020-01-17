@@ -1,13 +1,54 @@
-﻿@{
+﻿@model IEnumerable<Personnel>
+@{
     ViewBag.HeadTitle = "Personnel Phone Book";
 }
 
+@section customScripts{
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.js"></script>
+    <script src="~/Assets/js/scripts.js"></script>
+}
+
+@section customStyles{
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.css" />
+    <link href="~/Assets/css/styles.css" rel="stylesheet" />
+}
+
 <div class="container border border-dark rounded p-3 bg-light mx-auto">
-    <h2 class="text-center">@ViewBag.HeadTitle</h2>
-    <div class="row my-1">
-        <div class="col"><input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Search Person, Department or Phone Number"></div>
+    <h2 class="text-center">@ViewBag.HeadTitle <small>@Model.Count() Entries Available</small></h2>
+    <div class="input-group">
+        <input type="text" class="form-control" id="searchInput" placeholder="Search in all headers" />
+        <div class="input-group-append">
+            <button class="btn btn-danger" id="clearbtn" type="button">×</button>
+        </div>
     </div>
-    <table class="table table-hover table-borderless table-striped" id="myTable">
+    <table class="table table-hover table-borderless table-striped text-center" id="dataTable1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Role</th>
+                <th>Department</th>
+                <th>Phone Number</th>
+            </tr>
+        </thead>
+        <tbody id="tabledatahere">
+            @*@foreach (Personnel personnel in Model)
+                {
+                    <tr>
+                        <td>@personnel.Name</td>
+                        <td>@personnel.Surname</td>
+                        <td>@personnel.Role</td>
+                        <td>@personnel.Department</td>
+                        <td>@personnel.Phone</td>
+                    </tr>
+                }*@
+            <tr>
+                <td colspan="5">@Model.Count() Entry Available</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr />
+    <table id="dataTable2" class="table table-hover table-borderless table-striped text-center">
         <thead>
             <tr>
                 <th>Name</th>
@@ -18,27 +59,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Umut</td>
-                <td>Dere</td>
-                <td>Software Developer</td>
-                <td>IT</td>
-                <td>+90 535 081 1936</td>
-            </tr>
-            <tr>
-                <td>Tolga Can</td>
-                <td>Ceylan</td>
-                <td>Software Developer</td>
-                <td>IT</td>
-                <td>+90 123 123 1234</td>
-            </tr>
-            <tr>
-                <td>Cemal</td>
-                <td>Aydın</td>
-                <td>Moneyman</td>
-                <td>Finance</td>
-                <td>+90 123 123 1234</td>
-            </tr>
+            @foreach (Personnel personnel in Model)
+            {
+                <tr>
+                    <td>@personnel.Name</td>
+                    <td>@personnel.Surname</td>
+                    <td>@personnel.Role</td>
+                    <td>@personnel.Department</td>
+                    <td>@personnel.Phone</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

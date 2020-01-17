@@ -88,6 +88,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\styles.css" />
+    <Content Include="Assets\img\loader.gif" />
     <Content Include="Assets\js\scripts.js" />
     <Content Include="Assets\libraries\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Assets\libraries\bootstrap\css\bootstrap-grid.min.css" />
@@ -99,6 +101,11 @@
     <Content Include="Assets\libraries\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Assets\libraries\bootstrap\js\bootstrap.js" />
     <Content Include="Assets\libraries\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Assets\libraries\jQuery-UI\css\jquery-ui.css" />
+    <Content Include="Assets\libraries\jQuery-UI\css\jquery-ui.min.css" />
+    <Content Include="Assets\libraries\jQuery-UI\js\jquery-ui.js" />
+    <Content Include="Assets\libraries\jQuery-UI\js\jquery-ui.min.js" />
+    <Content Include="Assets\libraries\jQuery-UI\js\jquery.ui.autocomplete.scroll.js" />
     <Content Include="Assets\libraries\jQuery\jquery-3.4.1.js" />
     <Content Include="Assets\libraries\jQuery\jquery-3.4.1.min.js" />
     <Content Include="Global.asax" />
@@ -140,6 +147,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TelephoneBook.Entities\TelephoneBook.Entities.csproj">
+      <Project>{949F436C-0C05-4DB9-869A-C7693352E37D}</Project>
+      <Name>TelephoneBook.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TelephoneBook.Services\TelephoneBook.Services.csproj">
+      <Project>{8FF9FF23-DD10-4C28-9A03-173CC67FD43F}</Project>
+      <Name>TelephoneBook.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

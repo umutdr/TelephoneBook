@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\DataContext.cs" />
+    <Compile Include="Management\PersonnelManagement.cs" />
     <Compile Include="Mappings\PersonnelMappings.cs" />
     <Compile Include="Migrations\202001161633305_PersonnelsTableAdded.cs" />
     <Compile Include="Migrations\202001161633305_PersonnelsTableAdded.designer.cs">
@@ -75,6 +76,7 @@
       <DependentUpon>202001161633305_PersonnelsTableAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

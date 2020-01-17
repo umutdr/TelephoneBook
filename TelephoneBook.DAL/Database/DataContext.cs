@@ -11,6 +11,11 @@ namespace TelephoneBook.DAL.Database
 {
     class DataContext : DbContext
     {
+        public DataContext() : base("mssql-link")
+        {
+            var ensureDLLIsCopied =
+          System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -18,7 +23,6 @@ namespace TelephoneBook.DAL.Database
             modelBuilder.Configurations.Add(new PersonnelMappings());
         }
 
-        public DataContext() : base("mssql-link") { }
         public DbSet<Personnel> personnels { get; set; }
     }
 }
