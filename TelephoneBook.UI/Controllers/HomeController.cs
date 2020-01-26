@@ -25,10 +25,10 @@ namespace TelephoneBook.UI.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetSearchValue(string searchValue)
+        public JsonResult GetPersonnelsBySearchValue(string searchValue)
         {
-            List<Personnel> personnels = _personnelService.GetSearchValue(searchValue);
-            return new JsonResult { Data = personnels, JsonRequestBehavior = JsonRequestBehavior.AllowGet }; 
+            List<Personnel> personnels = _personnelService.GetPersonnelsBySearchValue(searchValue);
+            return new JsonResult { Data = personnels, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
         [HttpGet]

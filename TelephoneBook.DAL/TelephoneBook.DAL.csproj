@@ -53,10 +53,16 @@
   <ItemGroup>
     <Compile Include="Database\DataContext.cs" />
     <Compile Include="Management\PersonnelManagement.cs" />
+    <Compile Include="Mappings\DepartmentMappings.cs" />
+    <Compile Include="Mappings\DepartmentRoleMappings.cs" />
     <Compile Include="Mappings\PersonnelMappings.cs" />
     <Compile Include="Migrations\202001161633305_PersonnelsTableAdded.cs" />
     <Compile Include="Migrations\202001161633305_PersonnelsTableAdded.designer.cs">
       <DependentUpon>202001161633305_PersonnelsTableAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001261903369_entitiesAddedAndRelations.cs" />
+    <Compile Include="Migrations\202001261903369_entitiesAddedAndRelations.designer.cs">
+      <DependentUpon>202001261903369_entitiesAddedAndRelations.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +80,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202001161633305_PersonnelsTableAdded.resx">
       <DependentUpon>202001161633305_PersonnelsTableAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001261903369_entitiesAddedAndRelations.resx">
+      <DependentUpon>202001261903369_entitiesAddedAndRelations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

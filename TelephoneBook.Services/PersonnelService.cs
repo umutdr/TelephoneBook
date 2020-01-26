@@ -19,19 +19,20 @@ namespace TelephoneBook.Services
 
         public List<Personnel> GetPersonnels()
         {
-            var personnels = _personnelManagement.GetPersonnels();
+            List<Personnel> personnels = _personnelManagement.GetPersonnels();
             return personnels;
         }
 
-        public List<Personnel> GetSearchValue(string searchValue)
+        public List<Personnel> GetPersonnelsBySearchValue(string searchValue)
         {
-            var personnels = _personnelManagement.GetSearchValue(searchValue);
+            List<Personnel> personnels = _personnelManagement.GetPersonnelsBySearchValue(searchValue);
+
             return personnels;
         }
 
         public Personnel GetPersonnelById(int personnelId)
         {
-            var personennel = _personnelManagement.GetPersonnelById(personnelId);
+            Personnel personennel = _personnelManagement.GetPersonnelById(personnelId);
             return personennel;
         }
     }

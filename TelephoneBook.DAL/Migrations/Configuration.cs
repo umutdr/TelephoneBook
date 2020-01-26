@@ -19,7 +19,7 @@
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
 
-            if (context.personnels.Any())
+            if (context.Personnels.Any())
             {
                 Console.WriteLine("Personnels Table Is Empty!");
             }

@@ -3,11 +3,11 @@ using TelephoneBook.Entities;
 
 namespace TelephoneBook.DAL.Mappings
 {
-    class PersonnelMappings: EntityTypeConfiguration<Personnel>
+    class DepartmentMappings : EntityTypeConfiguration<Department>
     {
-        public PersonnelMappings()
+        public DepartmentMappings()
         {
-            ToTable("Personnels"); // schema dbo
+            ToTable("Departments");
         }
     }
 }

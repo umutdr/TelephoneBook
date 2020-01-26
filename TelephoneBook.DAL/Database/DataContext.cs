@@ -21,8 +21,15 @@ namespace TelephoneBook.DAL.Database
         {
             //base.OnModelCreating(modelBuilder);
             modelBuilder.Configurations.Add(new PersonnelMappings());
+            modelBuilder.Configurations.Add(new DepartmentMappings());
+            modelBuilder.Configurations.Add(new DepartmentRoleMappings());
         }
 
-        public DbSet<Personnel> personnels { get; set; }
+        public DbSet<Personnel> Personnels { get; set; }
+
+        public DbSet<Department> Departments { get; set; }
+
+        public DbSet<DepartmentRole> DepartmentRoles { get; set; }
+
     }
 }
