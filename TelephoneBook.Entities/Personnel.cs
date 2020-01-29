@@ -14,9 +14,9 @@
 
         public string Surname { get; set; }
 
-        public virtual DepartmentRole DepartmentRole { get; set; } // Virtual lazy loading için kullanılır
+        public DepartmentRole DepartmentRole { get; set; }
 
-        public virtual Department Department { get; set; }
+        public Department Department { get; set; }
 
         public string Phone { get; set; }
 

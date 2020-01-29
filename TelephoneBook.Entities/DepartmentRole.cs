@@ -15,7 +15,7 @@ namespace TelephoneBook.Entities
 
         public int DepartmentId { get; set; }
 
-        public virtual Department Department { get; set; } // Virtual lazy loading için kullanılır
+        public Department Department { get; set; }
 
     }
 }
