@@ -4,10 +4,10 @@ namespace TelephoneBook.Entities
 {
     public class DepartmentRole
     {
-        //public DepartmentRole()
-        //{
-        //    Department = new Department();
-        //}
+        public DepartmentRole()
+        {
+            Department = new Department();
+        }
 
         public int Id { get; set; }
 

@@ -32,7 +32,22 @@ namespace TelephoneBook.UI.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            //var personnelViewModel = _personnelService.GetPersonnels().GetPersonnelViewModelsByPersonnelModels();
+            var personnelViewModel = _personnelService.GetPersonnels().GetPersonnelViewModelsByPersonnelModels();
+
+            var departmentModel = personnelViewModel.Select(x => new
+            {
+                Id = x.Department.Id,
+                Name = x.Department.DepartmentName
+            });
+
+            var departmentRoleModel = personnelViewModel.Select(x => new
+            {
+                Id = x.DepartmentRole.Id,
+                Name = x.DepartmentRole.DepartmentRoleName
+            });
+
+            ViewBag.DepartmentModel = new SelectList(departmentModel, "Id", "Name");
+            ViewBag.DepartmentRoleModel = new SelectList(departmentRoleModel, "Id", "Name");
 
             return View();
         }
