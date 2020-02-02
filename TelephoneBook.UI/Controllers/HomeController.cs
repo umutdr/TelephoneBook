@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using TelephoneBook.Entities;
 using TelephoneBook.Services;
+using TelephoneBook.UI.Extensions;
+using TelephoneBook.UI.Models;
 
 namespace TelephoneBook.UI.Controllers
 {
@@ -20,8 +22,12 @@ namespace TelephoneBook.UI.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            List<Personnel> personnels = _personnelService.GetPersonnels();
-            return View(model: personnels);
+            //var personnels = _personnelService.GetPersonnels().GetViewModelByModel(); // Havalı yöntem, direkt extensions metoda gönderiyorum ve return alıyorum
+
+            var personnelsModel = _personnelService.GetPersonnels();
+            var personnelsViewModel = personnelsModel.GetPersonnelViewModelByPersonnelModel(); // personnelsModel'in içeriği doğrudan GetViewModelByModel() içerisine parametre olarak gidiyor. Clean code extension kullanımı.
+
+            return View(model: personnelsViewModel);
         }
 
         [HttpGet]

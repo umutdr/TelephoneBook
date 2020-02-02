@@ -1,0 +1,55 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using TelephoneBook.Entities;
+using TelephoneBook.UI.Models;
+
+namespace TelephoneBook.UI.Extensions
+{
+    public static class PersonnelExtensions
+    {
+        public static List<PersonnelViewModel> GetPersonnelViewModelByPersonnelModel(this List<Personnel> personnelModels)
+        {
+            List<PersonnelViewModel> personnelsViewModels = new List<PersonnelViewModel>();
+
+            foreach (var personnel in personnelModels)
+            {
+                PersonnelViewModel personnelsViewModel = new PersonnelViewModel
+                {
+                    Name = personnel.Name,
+                    Surname = personnel.Surname,
+                    Department = personnel.Department,
+                    DepartmentRole = personnel.DepartmentRole,
+                    Phone = personnel.Phone
+                };
+
+                personnelsViewModels.Add(personnelsViewModel);
+            }
+
+            return personnelsViewModels;
+        }
+
+        public static List<Personnel> GetPersonnelModelByPersonnelViewModel(this List<PersonnelViewModel> personnelsViewModels)
+        {
+            List<Personnel> personnelsModels = new List<Personnel>();
+
+            foreach (var personnel in personnelsViewModels)
+            {
+                Personnel personnelsModel = new Personnel
+                {
+                    Name = personnel.Name,
+                    Surname = personnel.Surname,
+                    Department = personnel.Department,
+                    DepartmentRole = personnel.DepartmentRole,
+                    Phone = personnel.Phone
+                };
+
+                personnelsModels.Add(personnelsModel);
+            }
+
+            return personnelsModels;
+        }
+
+    }
+}
