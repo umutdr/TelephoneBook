@@ -1,0 +1,94 @@
+﻿@model PersonnelViewModel
+<div class="container">
+    @using (Html.BeginForm("Create", "Personnel", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.Name)
+            @Html.EditorFor(model => model.Name, additionalViewData:
+                                                                    new
+                                                                         {
+                                                                            htmlAttributes = new
+                                                                            {
+                                                                                id = "personnelName",
+                                                                                name = "personnelName",
+                                                                                placeholder = "Name",
+                                                                                @class = "form-control",
+                                                                                required = "required"
+                                                                             }
+                                                                         }
+                                                                    )
+            @Html.ValidationMessageFor(model => model.Name, "", htmlAttributes: new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.Surname)
+            @Html.EditorFor(model => model.Surname, additionalViewData:
+                                                                        new
+                                                                             {
+                                                                                htmlAttributes = new
+                                                                                {
+                                                                                    id = "personnelSurname",
+                                                                                    name = "personnelSurname",
+                                                                                    placeholder = "Surname",
+                                                                                    @class = "form-control",
+                                                                                    required = "required"
+                                                                                 }
+                                                                             }
+                                                                        )
+            @Html.ValidationMessageFor(model => model.Surname, "", htmlAttributes: new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.Department)
+            @Html.EditorFor(model => model.Department.Id, additionalViewData:
+                new
+                     {
+                        htmlAttributes = new
+                        {
+                            id = "personnelDepartment",
+                            name = "personnelDepartment",
+                            placeholder = "Personnel Department",
+                            @class = "form-control",
+                            required = "required"
+                         }
+                     }
+                )
+            @Html.ValidationMessageFor(model => model.Department, "", htmlAttributes: new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.DepartmentRole)
+            @Html.EditorFor(model => model.DepartmentRole.Id, additionalViewData:
+                                                                                new
+                                                                                    {
+                                                                                        htmlAttributes = new
+                                                                                        {
+                                                                                            id = "personnelDepartmentRole",
+                                                                                            name = "personnelDepartmentRole",
+                                                                                            placeholder = "Personnel Department Role",
+                                                                                            @class = "form-control",
+                                                                                            required = "required"
+                                                                                            }
+                                                                                        }
+                                                                                )
+            @Html.ValidationMessageFor(model => model.DepartmentRole, "", htmlAttributes: new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.Phone)
+            @Html.EditorFor(model => model.Phone, additionalViewData:
+                                            new
+                                                 {
+                                                    htmlAttributes = new
+                                                    {
+                                                        id = "personnelPhone",
+                                                        name = "personnelPhone",
+                                                        placeholder = "Phone",
+                                                        @class = "form-control",
+                                                        required = "required"
+                                                     }
+                                                 }
+                                            )
+            @Html.ValidationMessageFor(model => model.Phone, "", htmlAttributes: new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    }
+</div>

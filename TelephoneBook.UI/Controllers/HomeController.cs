@@ -25,7 +25,7 @@ namespace TelephoneBook.UI.Controllers
             //var personnels = _personnelService.GetPersonnels().GetViewModelByModel(); // Havalı yöntem, direkt extensions metoda gönderiyorum ve return alıyorum
 
             var personnelsModel = _personnelService.GetPersonnels();
-            var personnelsViewModel = personnelsModel.GetPersonnelViewModelByPersonnelModel(); // personnelsModel'in içeriği doğrudan GetViewModelByModel() içerisine parametre olarak gidiyor. Clean code extension kullanımı.
+            var personnelsViewModel = personnelsModel.GetPersonnelViewModelsByPersonnelModels(); // personnelsModel'in içeriği doğrudan GetViewModelByModel() içerisine parametre olarak gidiyor. Clean code extension kullanımı.
 
             return View(model: personnelsViewModel);
         }

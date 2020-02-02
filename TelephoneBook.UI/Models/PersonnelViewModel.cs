@@ -12,16 +12,18 @@ namespace TelephoneBook.UI.Models
         [Required(ErrorMessage = "[CustomMSG] Name field is required.")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "[CustomMSG] This field is required.")]
+        [Required(ErrorMessage = "[CustomMSG] Surname field is required.")]
         public string Surname { get; set; }
 
-        [Required(ErrorMessage = "[CustomMSG] This field is required.")]
-        public DepartmentRole DepartmentRole { get; set; }
-
-        [Required(ErrorMessage = "[CustomMSG] This field is required.")]
+        [Display(Name = "Department")]
+        [Required(ErrorMessage = "[CustomMSG] Department field is required.")]
         public Department Department { get; set; }
 
-        [Required(ErrorMessage = "[CustomMSG] This field is required.")]
+        [Display(Name = "Role")]
+        [Required(ErrorMessage = "[CustomMSG] Role field is required.")]
+        public DepartmentRole DepartmentRole { get; set; } // TODO DepartmentRole ve Department için VM de ne kullanılmalı?
+
+        [Required(ErrorMessage = "[CustomMSG] Phone field is required.")]
         public string Phone { get; set; }
     }
 }

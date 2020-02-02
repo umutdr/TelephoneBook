@@ -23,6 +23,12 @@ namespace TelephoneBook.Services
             return personnels;
         }
 
+        public bool Create(Personnel personnel)
+        {
+            var result = _personnelManagement.Create(personnel);
+            return result;
+        }
+
         public List<Personnel> GetPersonnelsBySearchValue(string searchValue)
         {
             List<Personnel> personnels = _personnelManagement.GetPersonnelsBySearchValue(searchValue);

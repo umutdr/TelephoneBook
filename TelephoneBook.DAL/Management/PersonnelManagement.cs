@@ -25,13 +25,19 @@ namespace TelephoneBook.DAL.Management
             return personnels;
         }
 
+        public bool Create(Personnel personnel)
+        {
+            dataContext.Personnels.Add(personnel);
+            var result = dataContext.SaveChanges();
+            return result > 0;
+        }
+
         public Personnel GetPersonnelById(int personnelId)
         {
             Personnel personnel = dataContext.Personnels.Include(x => x.DepartmentRole).Include(y => y.Department).FirstOrDefault(x => x.Id == personnelId);
 
             return personnel;
         }
-
 
         public List<Personnel> GetPersonnelsBySearchValue(string searchValue)
         {

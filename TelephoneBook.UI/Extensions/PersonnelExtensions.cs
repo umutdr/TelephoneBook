@@ -9,7 +9,7 @@ namespace TelephoneBook.UI.Extensions
 {
     public static class PersonnelExtensions
     {
-        public static List<PersonnelViewModel> GetPersonnelViewModelByPersonnelModel(this List<Personnel> personnelModels)
+        public static List<PersonnelViewModel> GetPersonnelViewModelsByPersonnelModels(this List<Personnel> personnelModels)
         {
             List<PersonnelViewModel> personnelsViewModels = new List<PersonnelViewModel>();
 
@@ -20,7 +20,7 @@ namespace TelephoneBook.UI.Extensions
                     Name = personnel.Name,
                     Surname = personnel.Surname,
                     Department = personnel.Department,
-                    DepartmentRole = personnel.DepartmentRole,
+                    DepartmentRole= personnel.DepartmentRole,
                     Phone = personnel.Phone
                 };
 
@@ -30,7 +30,7 @@ namespace TelephoneBook.UI.Extensions
             return personnelsViewModels;
         }
 
-        public static List<Personnel> GetPersonnelModelByPersonnelViewModel(this List<PersonnelViewModel> personnelsViewModels)
+        public static List<Personnel> GetPersonnelModelsByPersonnelViewModels(this List<PersonnelViewModel> personnelsViewModels)
         {
             List<Personnel> personnelsModels = new List<Personnel>();
 
@@ -50,6 +50,22 @@ namespace TelephoneBook.UI.Extensions
 
             return personnelsModels;
         }
+
+        public static Personnel GetPersonnelModelByPersonnelViewModel(this PersonnelViewModel personnelsViewModel)
+        {
+            Personnel personnelsModel = new Personnel
+            {
+                Name = personnelsViewModel.Name,
+                Surname = personnelsViewModel.Surname,
+                Department = personnelsViewModel.Department,
+                DepartmentRole = personnelsViewModel.DepartmentRole,
+                Phone = personnelsViewModel.Phone,
+            };
+
+
+            return personnelsModel;
+        }
+
 
     }
 }
