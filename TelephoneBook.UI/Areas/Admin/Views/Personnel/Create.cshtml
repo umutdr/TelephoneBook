@@ -2,8 +2,8 @@
 <div class="container">
     @using (Html.BeginForm("Create", "Personnel", FormMethod.Post))
     {
-        <div class="form-group">
-            @Html.DisplayNameFor(model => model.Name)
+        <div class="form-group text-">
+            @Html.LabelFor(model => model.Name)
             @Html.EditorFor(model => model.Name, additionalViewData:
                                                                     new
                                                                          {
@@ -19,7 +19,7 @@
             @Html.ValidationMessageFor(model => model.Name, "", htmlAttributes: new { @class = "text-danger" })
         </div>
         <div class="form-group">
-            @Html.DisplayNameFor(model => model.Surname)
+            @Html.LabelFor(model => model.Surname)
             @Html.EditorFor(model => model.Surname, additionalViewData:
                                                                         new
                                                                              {
@@ -35,7 +35,7 @@
             @Html.ValidationMessageFor(model => model.Surname, "", htmlAttributes: new { @class = "text-danger" })
         </div>
         <div class="form-group">
-            @Html.DisplayNameFor(model => model.Department)
+            @Html.LabelFor(model => model.Department)
             @Html.DropDownListFor(x => x.Department.Id, ViewBag.DepartmentModel as SelectList, "Select Department", htmlAttributes: new
                                                                                                                                     {
                                                                                                                                         id = "personnelDepartment",
@@ -46,7 +46,7 @@
             @Html.ValidationMessageFor(model => model.Department, "", htmlAttributes: new { @class = "text-danger" })
         </div>
         <div class="form-group">
-            @Html.DisplayNameFor(model => model.DepartmentRole)
+            @Html.LabelFor(model => model.DepartmentRole)
             @Html.DropDownListFor(y => y.DepartmentRole.Id, ViewBag.DepartmentRoleModel as SelectList, "Select Role", htmlAttributes: new
                                                                                                                                         {
                                                                                                                                             id = "personnelDepartmentRole",
@@ -57,7 +57,7 @@
             @Html.ValidationMessageFor(model => model.DepartmentRole, "", htmlAttributes: new { @class = "text-danger" })
         </div>
         <div class="form-group">
-            @Html.DisplayNameFor(model => model.Phone)
+            @Html.LabelFor(model => model.Phone)
             @Html.EditorFor(model => model.Phone, additionalViewData:
                                             new
                                                  {
