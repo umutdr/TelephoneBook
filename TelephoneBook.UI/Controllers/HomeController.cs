@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using TelephoneBook.Entities;
 using TelephoneBook.Services;
 using TelephoneBook.UI.Extensions;
-using TelephoneBook.UI.Models;
+using Newtonsoft.Json;
 
 namespace TelephoneBook.UI.Controllers
 {
@@ -31,17 +28,35 @@ namespace TelephoneBook.UI.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetPersonnelsBySearchValue(string searchValue)
+        public ActionResult GetPersonnelsBySearchValue(string searchValue)
         {
             List<Personnel> personnels = _personnelService.GetPersonnelsBySearchValue(searchValue);
-            return new JsonResult { Data = personnels, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            //return new JsonResult { Data = personnels, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+            var list = JsonConvert.SerializeObject(personnels,
+            Formatting.None,
+            new JsonSerializerSettings()
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            });
+
+            return Content(list, "application/json");
         }
 
         [HttpGet]
-        public JsonResult GetPersonnelById(int personnelId)
+        public ActionResult GetPersonnelById(int personnelId)
         {
             Personnel personnel = _personnelService.GetPersonnelById(personnelId);
-            return new JsonResult { Data = personnel, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            //return new JsonResult { Data = personnel, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+            var list = JsonConvert.SerializeObject(personnel,
+            Formatting.None,
+            new JsonSerializerSettings()
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            });
+
+            return Content(list, "application/json");
         }
 
     }

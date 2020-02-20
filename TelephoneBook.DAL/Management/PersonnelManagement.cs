@@ -20,7 +20,8 @@ namespace TelephoneBook.DAL.Management
 
         public List<Personnel> GetPersonnels()
         {
-            List<Personnel> personnels = dataContext.Personnels.Include(y => y.Department).Include(x => x.DepartmentRole).ToList();
+            //List<Personnel> personnels = dataContext.Personnels.Include(y => y.Department).Include(x => x.DepartmentRole).ToList();
+            List<Personnel> personnels = dataContext.Personnels.ToList();
 
             return personnels;
         }
@@ -34,14 +35,16 @@ namespace TelephoneBook.DAL.Management
 
         public Personnel GetPersonnelById(int personnelId)
         {
-            Personnel personnel = dataContext.Personnels.Include(x => x.DepartmentRole).Include(y => y.Department).FirstOrDefault(x => x.Id == personnelId);
+            //Personnel personnel = dataContext.Personnels.Include(x => x.DepartmentRole).Include(y => y.Department).FirstOrDefault(x => x.Id == personnelId);
+            Personnel personnel = dataContext.Personnels.FirstOrDefault(x => x.Id == personnelId);
 
             return personnel;
         }
 
         public List<Personnel> GetPersonnelsBySearchValue(string searchValue)
         {
-            List<Personnel> personnels = dataContext.Personnels.Include(x => x.DepartmentRole).Include(y => y.Department).Where(x =>
+            //List<Personnel> personnels = dataContext.Personnels.Include(x => x.DepartmentRole).Include(y => y.Department).Where(x =>
+            List < Personnel> personnels = dataContext.Personnels.Where(x =>
                                         x.Name.Contains(searchValue) ||
                                         x.Surname.Contains(searchValue) ||
                                         x.DepartmentRole.DepartmentRoleName.Contains(searchValue) ||

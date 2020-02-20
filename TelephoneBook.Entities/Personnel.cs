@@ -1,23 +1,30 @@
-﻿namespace TelephoneBook.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace TelephoneBook.Entities
 {
     public class Personnel
     {
-        //public Personnel()
-        //{
-        //    Department = new Department();
-        //    DepartmentRole = new DepartmentRole();
-        //}
-
+        [Key]
         public int Id { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
+        [Required]
         public string Surname { get; set; }
 
-        public DepartmentRole DepartmentRole { get; set; }
+        [ForeignKey(nameof(DepartmentRole))]
+        public int DepartmentRoleId { get; set; }
 
-        public Department Department { get; set; }
+        public virtual DepartmentRole DepartmentRole { get; set; }
 
+        [ForeignKey(nameof(Department))]
+        public int DepartmentId { get; set; }
+
+        public virtual Department Department { get; set; }
+
+        [Required]
         public string Phone { get; set; }
 
     }
