@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\DataContext.cs" />
+    <Compile Include="Management\DepartmentRoleManagement.cs" />
+    <Compile Include="Management\DepartmentManagement.cs" />
     <Compile Include="Management\PersonnelManagement.cs" />
     <Compile Include="Migrations\202001161633305_PersonnelsTableAdded.cs" />
     <Compile Include="Migrations\202001161633305_PersonnelsTableAdded.designer.cs">

@@ -3,7 +3,7 @@ using TelephoneBook.Entities;
 
 namespace TelephoneBook.DAL.Database
 {
-    class DataContext : DbContext
+    public class DataContext : DbContext
     {
         public DataContext() : base("mssql-link")
         {

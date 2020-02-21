@@ -91,8 +91,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\navbar.css" />
     <Content Include="Assets\css\styles.css" />
     <Content Include="Assets\img\loader.gif" />
+    <Content Include="Assets\js\navbar.js" />
     <Content Include="Assets\js\scripts.js" />
     <Content Include="Assets\libraries\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Assets\libraries\bootstrap\css\bootstrap-grid.min.css" />
@@ -117,13 +119,20 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DepartmentController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DepartmentRoleController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\PersonnelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Extensions\DepartmentExtensions.cs" />
+    <Compile Include="Extensions\DepartmentRoleExtensions.cs" />
+    <Compile Include="Extensions\GeneralExtensions.cs" />
     <Compile Include="Extensions\PersonnelExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DepartmentRoleViewModel.cs" />
+    <Compile Include="Models\DepartmentViewModel.cs" />
     <Compile Include="Models\PersonnelViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -140,12 +149,13 @@
     <Content Include="Assets\libraries\bootstrap\js\bootstrap.js.map" />
     <Content Include="Assets\libraries\bootstrap\js\bootstrap.min.js.map" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Shared\_Footer.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminSideBar.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_NavBar.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminNavBar.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Personnel\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Footer - Copy.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

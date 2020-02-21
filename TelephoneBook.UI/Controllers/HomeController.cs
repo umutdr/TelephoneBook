@@ -33,14 +33,9 @@ namespace TelephoneBook.UI.Controllers
             List<Personnel> personnels = _personnelService.GetPersonnelsBySearchValue(searchValue);
             //return new JsonResult { Data = personnels, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 
-            var list = JsonConvert.SerializeObject(personnels,
-            Formatting.None,
-            new JsonSerializerSettings()
-            {
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-            });
+            var personnelsJSON = GeneralExtensions.SerializeJSON(personnels);
 
-            return Content(list, "application/json");
+            return Content(personnelsJSON, "application/json");
         }
 
         [HttpGet]
@@ -49,14 +44,9 @@ namespace TelephoneBook.UI.Controllers
             Personnel personnel = _personnelService.GetPersonnelById(personnelId);
             //return new JsonResult { Data = personnel, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 
-            var list = JsonConvert.SerializeObject(personnel,
-            Formatting.None,
-            new JsonSerializerSettings()
-            {
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-            });
+            var personnelJSON = GeneralExtensions.SerializeJSON(personnel);
 
-            return Content(list, "application/json");
+            return Content(personnelJSON, "application/json");
         }
 
     }

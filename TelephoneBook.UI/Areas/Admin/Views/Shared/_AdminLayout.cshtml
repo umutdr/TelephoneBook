@@ -7,24 +7,27 @@
     <link href="~/Assets/libraries/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="~/Assets/libraries/jQuery-UI/css/jquery-ui.css" rel="stylesheet" />
     <link href="~/Assets/css/styles.css" rel="stylesheet" />
+    <link href="~/Assets/css/navbar.css" rel="stylesheet" />
     @RenderSection("customAdminStyles", required: false)
     <title>@ViewBag.AdminTitle</title>
 </head>
 <body>
-    <header>
-        @Html.Partial("_NavBar");
-    </header>
+    @Html.Partial("_AdminNavBar")
+    <div id="wrapper" class="toggled">
+        @Html.Partial("_AdminSideBar")
+        @*https://bootsnipp.com/snippets/7np2j*@
+        <div id="page-content-wrapper">
+            <div class="container-fluid">@RenderBody()</div>
+        </div>
+    </div>
 
-    <main>
-        @RenderBody()
-    </main>
-
-    @Html.Partial("_Footer");
+    @Html.Partial("_Footer")
     <script src="~/Assets/libraries/jQuery/jquery-3.4.1.js"></script>
     <script src="~/Assets/libraries/jQuery-UI/js/jquery-ui.js"></script>
     <script src="~/Assets/libraries/jQuery-UI/js/jquery.ui.autocomplete.scroll.js"></script>
     <script src="~/Assets/libraries/bootstrap/js/bootstrap.js"></script>
-    <script src="~/Assets/js/scripts.js"></script>
+    <script src="~/Assets/libraries/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Assets/js/navbar.js"></script>
     @RenderSection("customAdminScripts", required: false)
 
 </body>

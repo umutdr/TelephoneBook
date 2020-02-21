@@ -12,10 +12,14 @@ namespace TelephoneBook.UI.Areas.Admin.Controllers
     public class PersonnelController : Controller
     {
         private PersonnelService _personnelService;
+        private DepartmentService _departmentService;
+        private DepartmentRoleService _departmentRoleService;
 
         public PersonnelController()
         {
             _personnelService = new PersonnelService();
+            _departmentService = new DepartmentService();
+            _departmentRoleService = new DepartmentRoleService();
         }
 
         [HttpGet]
@@ -32,22 +36,12 @@ namespace TelephoneBook.UI.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            var personnelViewModel = _personnelService.GetPersonnels().GetPersonnelViewModelsByPersonnelModels();
+            var departmentViewModel = _departmentService.GetDepartments().GetDepartmentViewModelsByDepartmentModels();
+            ViewBag.DepartmentsSelectList = new SelectList(departmentViewModel, "Id", "DepartmentName");
 
-            var departmentModel = personnelViewModel.Select(x => new
-            {
-                Id = x.Department.Id,
-                Name = x.Department.DepartmentName
-            });
+            var departmentRoleViewModel = _departmentRoleService.GetDepartmentRoles().GetDepartmentRoleViewModelsByDepartmentRoleModels();
+            ViewBag.DepartmentRolesSelectList = new SelectList(departmentRoleViewModel, "Id", "DepartmentRoleName");
 
-            var departmentRoleModel = personnelViewModel.Select(x => new
-            {
-                Id = x.DepartmentRole.Id,
-                Name = x.DepartmentRole.DepartmentRoleName
-            });
-
-            ViewBag.DepartmentModel = new SelectList(departmentModel, "Id", "Name");
-            ViewBag.DepartmentRoleModel = new SelectList(departmentRoleModel, "Id", "Name");
 
             return View();
         }
@@ -56,7 +50,15 @@ namespace TelephoneBook.UI.Areas.Admin.Controllers
         public ActionResult Create(PersonnelViewModel personnelViewModel)
         {
             if (!ModelState.IsValid)
+            {
+                var departmentViewModel = _departmentService.GetDepartments().GetDepartmentViewModelsByDepartmentModels();
+                ViewBag.DepartmentsSelectList = new SelectList(departmentViewModel, "Id", "DepartmentName");
+
+                var departmentRoleViewModel = _departmentRoleService.GetDepartmentRoles().GetDepartmentRoleViewModelsByDepartmentRoleModels();
+                ViewBag.DepartmentRolesSelectList = new SelectList(departmentRoleViewModel, "Id", "DepartmentRoleName");
+
                 return View(personnelViewModel);
+            }
 
             var personnelModel = personnelViewModel.GetPersonnelModelByPersonnelViewModel();
             _personnelService.Create(personnelModel);

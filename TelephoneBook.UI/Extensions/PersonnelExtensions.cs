@@ -19,8 +19,8 @@ namespace TelephoneBook.UI.Extensions
                 {
                     Name = personnel.Name,
                     Surname = personnel.Surname,
-                    Department = personnel.Department,
-                    DepartmentRole= personnel.DepartmentRole,
+                    DepartmentId = personnel.Department.Id,
+                    DepartmentRoleId = personnel.DepartmentRole.Id,
                     Phone = personnel.Phone
                 };
 
@@ -40,8 +40,8 @@ namespace TelephoneBook.UI.Extensions
                 {
                     Name = personnel.Name,
                     Surname = personnel.Surname,
-                    Department = personnel.Department,
-                    DepartmentRole = personnel.DepartmentRole,
+                    DepartmentId = personnel.DepartmentId,
+                    DepartmentRoleId = personnel.DepartmentRoleId,
                     Phone = personnel.Phone
                 };
 
@@ -57,15 +57,13 @@ namespace TelephoneBook.UI.Extensions
             {
                 Name = personnelsViewModel.Name,
                 Surname = personnelsViewModel.Surname,
-                Department = personnelsViewModel.Department,
-                DepartmentRole = personnelsViewModel.DepartmentRole,
+                DepartmentId = personnelsViewModel.DepartmentId,
+                DepartmentRoleId = personnelsViewModel.DepartmentRoleId,
                 Phone = personnelsViewModel.Phone,
             };
 
-
             return personnelsModel;
         }
-
 
     }
 }
