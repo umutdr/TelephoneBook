@@ -1,0 +1,20 @@
+﻿@model DepartmentRoleViewModel
+
+<div class="container">
+    <h1>Create New Role</h1>
+    <hr />
+    @using (Html.BeginForm("Create", "DepartmentRole", FormMethod.Post))
+    {
+        <div class="form-group text-">
+            @Html.LabelFor(model => model.DepartmentRoleName)
+            @Html.EditorFor(model => model.DepartmentRoleName, additionalViewData: new { htmlAttributes = new { id = "departmentRoleName", placeholder = "Role Name", @class = "form-control", required = "required" } })
+            @Html.ValidationMessageFor(model => model.DepartmentRoleName, "", htmlAttributes: new { @class = "text-danger" })
+        </div>
+        @*<div>
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+        </div>*@
+        <div class="form-group">
+            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    }
+</div>

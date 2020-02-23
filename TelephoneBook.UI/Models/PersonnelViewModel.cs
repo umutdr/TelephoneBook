@@ -21,24 +21,34 @@ namespace TelephoneBook.UI.Models
             _departmentRoleService = new DepartmentRoleService();
         }
 
-        [Required(ErrorMessage = "[CustomMSG] Name field is required.")]
+        [Display(Name = "Personnel Name")]
+        [RegularExpression(@"[a-zA-Z]+", ErrorMessage = "Personnel Name can contain only letters.")]
+        [DataType(DataType.Text)]
+        [StringLength(maximumLength: 35, MinimumLength = 3, ErrorMessage = "Personnel Name" + " length must be minimum 3 characters and maximum 35 characters.")]
+        [Required(ErrorMessage = "[CustomMSG] " + "Personnel Name" + " field is required.")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "[CustomMSG] Surname field is required.")]
+        [Display(Name = "Personnel Surname")]
+        [RegularExpression(@"[a-zA-Z]+", ErrorMessage = "Personnel Surname" + " can contain only letters.")]
+        [DataType(DataType.Text)]
+        [StringLength(maximumLength: 35, MinimumLength = 3, ErrorMessage = "Personnel Surname" + " length must be minimum 3 characters and maximum 35 characters.")]
+        [Required(ErrorMessage = "[CustomMSG] " + "Personnel Surname" + " field is required.")]
         public string Surname { get; set; }
 
         [Display(Name = "Department")]
-        [Required(ErrorMessage = "[CustomMSG] Department field is required.")]
+        [Required(ErrorMessage = "[CustomMSG] " + "Department" + " field is required.")]
         public int DepartmentId { get; set; }
-        /*Best practice, is that you??*/
         public string DepartmentName { get { return _departmentService.GetDepartmentById(DepartmentId).DepartmentName; } }
 
         [Display(Name = "Role")]
-        [Required(ErrorMessage = "[CustomMSG] Role field is required.")]
+        [Required(ErrorMessage = "[CustomMSG] " + "Role" + " field is required.")]
         public int DepartmentRoleId { get; set; }
         public string DepartmentRoleName { get { return _departmentRoleService.GetDepartmentRoleById(DepartmentRoleId).DepartmentRoleName; } }
-
-        [Required(ErrorMessage = "[CustomMSG] Phone field is required.")]
+        
+        [Display(Name = "Phone Number")]
+        [RegularExpression(@"^([0-9]+)$", ErrorMessage = "Personnel Phone" + " can contain only numbers.")]
+        [Required(ErrorMessage = "[CustomMSG] " + "Phone" + " field is required.")]
+        [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
     }
 }

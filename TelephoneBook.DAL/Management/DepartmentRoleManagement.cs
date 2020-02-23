@@ -28,5 +28,14 @@ namespace TelephoneBook.DAL.Management
             return departmentRole;
         }
 
+        public bool Create(DepartmentRole departmentRole)
+        {
+            dataContext.DepartmentRoles.Add(departmentRole);
+            var result = dataContext.SaveChanges();
+
+            return result > 0;
+        }
+
+
     }
 }

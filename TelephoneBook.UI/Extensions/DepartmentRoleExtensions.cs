@@ -45,5 +45,15 @@ namespace TelephoneBook.UI.Extensions
             return departmentRoleModels;
         }
 
+        public static DepartmentRole GetDepartmentRoleModelByDepartmentRoleViewModel(this DepartmentRoleViewModel departmentRoleViewModel)
+        {
+            DepartmentRole departmentRole = new DepartmentRole
+            {
+                Id = departmentRoleViewModel.Id,
+                DepartmentRoleName = departmentRoleViewModel.DepartmentRoleName
+            };
+
+            return departmentRole;
+        }
     }
 }

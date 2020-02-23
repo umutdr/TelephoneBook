@@ -19,8 +19,8 @@ namespace TelephoneBook.UI.Extensions
                 {
                     Name = personnel.Name,
                     Surname = personnel.Surname,
-                    DepartmentId = personnel.Department.Id,
-                    DepartmentRoleId = personnel.DepartmentRole.Id,
+                    DepartmentId = personnel.DepartmentId,
+                    DepartmentRoleId = personnel.DepartmentRoleId,
                     Phone = personnel.Phone
                 };
 

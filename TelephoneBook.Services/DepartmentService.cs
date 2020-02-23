@@ -30,5 +30,11 @@ namespace TelephoneBook.Services
 
             return department;
         }
+
+        public bool Create(Department department)
+        {
+            var result = departmentManagement.Create(department);
+            return result;
+        }
     }
 }

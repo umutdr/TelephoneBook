@@ -45,6 +45,16 @@ namespace TelephoneBook.UI.Extensions
             return departmentModels;
         }
 
+        public static Department GetDepartmentModelByDepartmentViewModel(this DepartmentViewModel departmentViewModel)
+        {
+            Department departmenModel = new Department
+            {
+                Id = departmentViewModel.Id,
+                DepartmentName = departmentViewModel.DepartmentName
+            };
+
+            return departmenModel;
+        }
 
     }
 }

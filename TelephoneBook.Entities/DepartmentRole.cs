@@ -12,6 +12,6 @@ namespace TelephoneBook.Entities
         [Required]
         public string DepartmentRoleName { get; set; }
 
-        public List<Personnel> Personnels { get; set; }
+        //public List<Personnel> Personnels { get; set; }
     }
 }

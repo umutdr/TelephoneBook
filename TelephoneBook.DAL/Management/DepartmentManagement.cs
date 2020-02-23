@@ -31,5 +31,13 @@ namespace TelephoneBook.DAL.Management
             return department;
         }
 
+        public bool Create(Department department)
+        {
+            dataContext.Departments.Add(department);
+            var result = dataContext.SaveChanges();
+
+            return result > 0;
+        }
+
     }
 }

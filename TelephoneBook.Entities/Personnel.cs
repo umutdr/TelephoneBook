@@ -17,12 +17,12 @@ namespace TelephoneBook.Entities
         [ForeignKey(nameof(DepartmentRole))]
         public int DepartmentRoleId { get; set; }
 
-        public virtual DepartmentRole DepartmentRole { get; set; }
+        public DepartmentRole DepartmentRole { get; set; }
 
         [ForeignKey(nameof(Department))]
         public int DepartmentId { get; set; }
 
-        public virtual Department Department { get; set; }
+        public Department Department { get; set; }
 
         [Required]
         public string Phone { get; set; }

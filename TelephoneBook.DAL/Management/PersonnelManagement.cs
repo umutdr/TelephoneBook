@@ -20,7 +20,6 @@ namespace TelephoneBook.DAL.Management
 
         public List<Personnel> GetPersonnels()
         {
-            //List<Personnel> personnels = dataContext.Personnels.Include(y => y.Department).Include(x => x.DepartmentRole).ToList();
             List<Personnel> personnels = dataContext.Personnels.ToList();
 
             return personnels;

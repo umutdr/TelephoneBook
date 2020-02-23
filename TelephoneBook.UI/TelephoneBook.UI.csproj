@@ -111,6 +111,8 @@
     <Content Include="Assets\libraries\jQuery-UI\js\jquery-ui.js" />
     <Content Include="Assets\libraries\jQuery-UI\js\jquery-ui.min.js" />
     <Content Include="Assets\libraries\jQuery-UI\js\jquery.ui.autocomplete.scroll.js" />
+    <Content Include="Assets\libraries\jQuery-Validation\jquery.validate.js" />
+    <Content Include="Assets\libraries\jQuery-Validation\jquery.validate.unobtrusive.js" />
     <Content Include="Assets\libraries\jQuery\jquery-3.4.1.js" />
     <Content Include="Assets\libraries\jQuery\jquery-3.4.1.min.js" />
     <Content Include="Global.asax" />
@@ -155,7 +157,8 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Personnel\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_Footer - Copy.cshtml" />
+    <Content Include="Areas\Admin\Views\Department\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DepartmentRole\Create.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

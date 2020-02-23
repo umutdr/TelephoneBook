@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TelephoneBook.Entities;
 using TelephoneBook.Services;
 using TelephoneBook.UI.Extensions;
 using TelephoneBook.UI.Models;
@@ -25,12 +26,10 @@ namespace TelephoneBook.UI.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            //var personnelsViewModel = _personnelService.GetPersonnels().GetPersonnelViewModelByPersonnelModel(); // Havalı yöntem, direkt extensions metoda gönderiyorum ve return alıyorum
+            List<Personnel> personnels = _personnelService.GetPersonnels();
+            var personnelsJSON = GeneralExtensions.SerializeJSON(personnels);
 
-            var personnelsModel = _personnelService.GetPersonnels();
-            var personnelsViewModel = personnelsModel.GetPersonnelViewModelsByPersonnelModels(); // personnelsModel'in içeriği doğrudan GetViewModelByModel() içerisine parametre olarak gidiyor. Clean code extension kullanımı.
-
-            return View(model: personnelsViewModel);
+            return Content(personnelsJSON,"application/json");
         }
 
         [HttpGet]
@@ -41,7 +40,6 @@ namespace TelephoneBook.UI.Areas.Admin.Controllers
 
             var departmentRoleViewModel = _departmentRoleService.GetDepartmentRoles().GetDepartmentRoleViewModelsByDepartmentRoleModels();
             ViewBag.DepartmentRolesSelectList = new SelectList(departmentRoleViewModel, "Id", "DepartmentRoleName");
-
 
             return View();
         }
